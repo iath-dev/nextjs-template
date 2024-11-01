@@ -1,3 +1,30 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript"]
+  "parser": "@typescript-eslint/parser",
+  "extends": ["next/core-web-vitals", "next/typescript", "plugin:@typescript-eslint/recommended", "plugin:prettier/recommended"],
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "settings": {
+    "react": {
+      "version": "detect" // Detecta automáticamente la versión de React
+    },
+    "import/resolver": {
+      "typescript": {} // Permite la resolución de módulos con TypeScript
+    }
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off", // No es necesario importar React con Next.js
+    "@typescript-eslint/explicit-function-return-type": "off", // No es necesario especificar el tipo de retorno en funciones
+    "prettier/prettier": ["error"],
+    "linebreak-style": ["error", "unix"]
+  },
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  }
 }
